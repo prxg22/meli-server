@@ -1,0 +1,21 @@
+{
+  "name": "meli-server",
+  "version": "1.0.0",
+  "description": "server to mercado livre's assignment",
+  "main": "index.js",
+  "repository": "git@github.com:prxg22/meli-server.git",
+  "author": "prxg22",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
