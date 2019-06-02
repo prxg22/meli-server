@@ -1,12 +1,14 @@
 const Router = require('express').Router
-const { search, reduce } = require('../items')
+const { search, reduce, find, parse } = require('../items')
 const { AUTHOR: author } = require('../config')
 const router = Router()
 
 router.get('/items', async (req, res, next) => {
   try {
-    const body = await search(req.query.q)
-    const items = await reduce(body)
+    const response = await search(req.query.q, {
+      limit: req.query.limit
+    })
+    const items = await reduce(response)
 
     res.sendWithAuthor(items)
   } catch(e) {
@@ -15,7 +17,16 @@ router.get('/items', async (req, res, next) => {
 })
 
 router.get('/items/:id', async (req, res, next) => {
-  res.sendWithAuthor()
+  const { id } = req.params
+
+  try {
+    const response = await find(id)
+    const item = parse(response)
+
+    res.sendWithAuthor(item)
+  } catch(e) {
+    next(e)
+  }
 })
 
 module.exports = router
