@@ -1,6 +1,5 @@
 const Router = require('express').Router
 const { search, reduce, find, parse } = require('../items')
-const { AUTHOR: author } = require('../config')
 const router = Router()
 
 router.get('/items', async (req, res, next) => {

@@ -1,12 +1,8 @@
-const fetch = require('../utils/fetch')
-const parse = require('./parse')
-
 const reducer = (acc, i) => {
   const {
     id,
     title,
     shipping,
-    installments,
     condition,
     category_id,
     currency_id,

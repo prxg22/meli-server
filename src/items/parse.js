@@ -29,6 +29,7 @@ const parse = ({ item: i, description: desc }) => {
     condition,
     description,
     picture,
+    sold_quantity,
   }
 
   return item
