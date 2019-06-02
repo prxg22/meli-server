@@ -1,6 +1,7 @@
 const fetch = require('../utils/fetch')
+const parse = require('./parse')
 
-const reducer = async (acc, i) => {
+const reducer = (acc, i) => {
   const {
     id,
     title,
@@ -9,7 +10,8 @@ const reducer = async (acc, i) => {
     condition,
     category_id,
     currency_id,
-    price: amount
+    price: amount,
+    thumbnail: picture,
   } = i
 
   const { free_shipping } = shipping || {}
@@ -23,12 +25,11 @@ const reducer = async (acc, i) => {
     },
     free_shipping,
     condition,
+    picture,
   }
 
-  const previous = await acc;
-
-  const categories = [ ...previous.categories, category_id ]
-  const items = [ ...previous.items, item ]
+  const categories = [ ...acc.categories, category_id ]
+  const items = [ ...acc.items, item ]
 
   return {
     categories,
@@ -36,7 +37,7 @@ const reducer = async (acc, i) => {
   }
 }
 
-const reduce = async (items) => items.reduce(reducer, {
+const reduce = (items) => items.reduce(reducer, {
   items: [],
   categories: [],
 })

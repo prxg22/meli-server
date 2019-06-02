@@ -1,10 +1,11 @@
 const fetch = require('../utils/fetch')
 
-const search = async (query = '') => {
+const search = async (query = '', { limit = 4 } = {}) => {
   if (!query) throw { status: 400, message: 'Insert a query, please!' }
 
-  const path = `/sites/MLA/search?q=${query}`
-
+  let path = `/sites/MLA/search?q=${query}`
+  if (limit) path += `&limit=${limit}`
+  console.log(path)
   const body = await fetch(path)
 
   if (!body.paging.total)
