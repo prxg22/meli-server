@@ -3,11 +3,11 @@ describe('search', () => {
   let search
 
   beforeAll(() => {
-    let path = '../src/utils/fetch'
+    let path = '../../src/utils/fetch'
     jest.mock(path)
     fetch = require(path)
 
-    path = '../src/items/search'
+    path = '../../src/items/search'
     search = require(path)
 
   })

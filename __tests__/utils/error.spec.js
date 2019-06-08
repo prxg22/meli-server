@@ -1,5 +1,5 @@
 describe('error', () => {
-  const error = require('../src/utils/error')
+  const error = require('../../src/utils/error')
   let res
 
   beforeAll(() => {

@@ -7,7 +7,7 @@ describe('fetch', () => {
     jest.mock(path)
     request = require(path)
 
-    path = '../src/utils/fetch'
+    path = '../../src/utils/fetch'
     fetch = require(path)
   })
 
